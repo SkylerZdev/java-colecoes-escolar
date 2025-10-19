@@ -13,7 +13,7 @@ public class HistoricoNotas {
     }
 
     // adiciona ou atualiza nota da matrícula
-    public void adicionarMatricula(int idEstudante, int codigoDisciplina, float nota) {
+    public void adicionarMatricula(int idEstudante, String codigoDisciplina, double nota) {
         List<Matricula> l = mapa.computeIfAbsent(idEstudante, k -> new ArrayList<>());
         for (Matricula m : l) {
             if (m.getCodigoDisciplina() == codigoDisciplina) {
@@ -31,7 +31,7 @@ public class HistoricoNotas {
         return l == null ? new ArrayList<>() : new ArrayList<>(l);
     }
 
-    public Optional<Float> obterNota(int idEstudante, int codigoDisciplina) {
+    public Optional<Double> obterNota(int idEstudante, String codigoDisciplina) {
         List<Matricula> l = mapa.get(idEstudante);
         if (l == null) return Optional.empty();
         for (Matricula m : l) {
@@ -40,9 +40,10 @@ public class HistoricoNotas {
         return Optional.empty();
     }
 
-    public void removerMatricula(int idEstudante, int codigoDisciplina) {
+    public void removerMatricula(int idEstudante, String codigoDisciplina) {
         List<Matricula> l = mapa.get(idEstudante);
         if (l == null) return;
         l.removeIf(m -> m.getCodigoDisciplina() == codigoDisciplina);
         if (l.isEmpty()) mapa.remove(idEstudante);
     }
+}

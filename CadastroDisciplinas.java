@@ -16,14 +16,14 @@ public class CadastroDisciplinas {
         return true;
     }
 
-    public boolean verificarDisciplina(int codigo) {
+    public boolean verificarDisciplina(String codigo) {
         for (Disciplina d : disciplinas) {
             if (d.getCodigo() == codigo) return true;
         }
         return false;
     }
 
-    public void removerDisciplina(int codigo) {
+    public void removerDisciplina(String codigo) {
         disciplinas.removeIf(d -> d.getCodigo() == codigo);
     }
 

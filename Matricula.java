@@ -1,20 +1,20 @@
 public class Matricula{
-    private int codigoDisciplina;
-    private float nota;
+    private String codigoDisciplina;
+    private double nota;
 
-    public Matricula(int codigoDisciplina){
+    public Matricula(String codigoDisciplina){
         this.codigoDisciplina = codigoDisciplina;
     }
 
-    public int getCodigoDisciplina(){
+    public String getCodigoDisciplina(){
         return codigoDisciplina;
     }
 
-    public float getNota(){
+    public double getNota(){
         return nota;
     }
 
-    public void setNota(float nota){
+    public void setNota(double nota){
         this.nota = nota;
     }
 }

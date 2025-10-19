@@ -1,13 +1,15 @@
+import java.util.Objects;
+
 public class Disciplina {
-    private int codigo;
+    private String codigo;
     private String nome;
 
-    public Disciplina(int codigo, String nome) {
+    public Disciplina(String codigo, String nome) {
         this.codigo = codigo;
         this.nome = nome;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
@@ -15,17 +17,17 @@ public class Disciplina {
         return nome;
     }
 
-    @Override
+        @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Disciplina)) return false;
-        Disciplina d = (Disciplina) o;
-        return this.codigo == d.codigo;
+        Disciplina that = (Disciplina) o;
+        return Objects.equals(codigo, that.codigo);
     }
 
     @Override
     public int hashCode() {
-        return Integer.hashCode(codigo);
+        return codigo.hashCode();
     }
 
     @Override
