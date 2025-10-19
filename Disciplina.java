@@ -17,11 +17,11 @@ public class Disciplina {
         return nome;
     }
 
-        @Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Disciplina)) return false;
-        Disciplina that = (Disciplina) o;
+         Disciplina that = (Disciplina) o;
         return Objects.equals(codigo, that.codigo);
     }
 

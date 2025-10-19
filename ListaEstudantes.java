@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Locale;
 
 // Lista que armazena e organiza Estudantes
@@ -64,6 +63,7 @@ public class ListaEstudantes {
             System.out.println("Nome: " + estudante.getNome() + " || Id: " + estudante.getId());
         }
     }
+    //Metodo que retorna uma copia da lista de estudantes como um ArrayList 
     public ArrayList<Estudante> obterTodos() {
         return new ArrayList<>(lista);
     }
