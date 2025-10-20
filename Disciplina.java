@@ -17,6 +17,7 @@ public class Disciplina {
         return nome;
     }
 
+    //Retorna verdadeiro se comparar duas disciplinas iguais, mesmo se forem objetos diferentes, comparando pelo codigo.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -25,6 +26,7 @@ public class Disciplina {
         return Objects.equals(codigo, that.codigo);
     }
 
+    //Retorna o hashCode do codigo ao invés do objeto.
     @Override
     public int hashCode() {
         return codigo.hashCode();

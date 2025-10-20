@@ -15,32 +15,34 @@ public class HistoricoNotas {
         this.listaEstudantes = listaEstudantes;
     }
 
-    // adiciona ou atualiza nota da matrícula
+    // Adiciona ou atualiza nota da matrícula
+    //listaM -> Lista de Matriculas do Estudante
     public void adicionarMatricula(int idEstudante, String codigoDisciplina, double nota) {
-        List<Matricula> l = mapa.computeIfAbsent(idEstudante, k -> new ArrayList<>());
-        for (Matricula m : l) {
-            if (m.getCodigoDisciplina() == codigoDisciplina) {
-                m.setNota(nota);  // atualiza nota existente
+        List<Matricula> listaM = mapa.computeIfAbsent(idEstudante, k -> new ArrayList<>());
+        for (Matricula matricula : listaM) {
+            if (matricula.getCodigoDisciplina() == codigoDisciplina) {
+                matricula.setNota(nota);  // atualiza nota existente
                 return;
             }
         }
         // se não existir, cria nova matrícula
         Matricula m = new Matricula(codigoDisciplina);
         m.setNota(nota);
-        l.add(m);
+        listaM.add(m);
     }
      // Retorna todas as matrículas de um estudante
     public List<Matricula> obterMatriculas(int idEstudante) {
-        List<Matricula> l = mapa.get(idEstudante);
-        return l == null ? new ArrayList<>() : new ArrayList<>(l);
+        List<Matricula> listaM = mapa.get(idEstudante);
+        return listaM == null ? new ArrayList<>() : new ArrayList<>(listaM);
     }
 
     public Optional<Double> obterNota(int idEstudante, String codigoDisciplina) {
-        List<Matricula> l = mapa.get(idEstudante);
-        if (l == null) return Optional.empty();
-        for (Matricula m : l) {
-            if (m.getCodigoDisciplina() == codigoDisciplina) return Optional.of(m.getNota());
+        List<Matricula> listaM = mapa.get(idEstudante);
+        if (listaM == null) return Optional.empty();
+        for (Matricula matricula : listaM) {
+            if (matricula.getCodigoDisciplina().equals(codigoDisciplina)) return Optional.of(matricula.getNota());
         }
         return Optional.empty();
-    }  
+    }
+    
 }

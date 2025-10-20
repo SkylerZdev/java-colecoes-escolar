@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Locale;
 
@@ -17,12 +16,7 @@ public class ListaEstudantes {
 
     //Metodo que percorre a lista removendo todos os estudantes que tiverem um Id especifico. O(n)
     void removerEstudantePorId(int id) {
-        Iterator<Estudante> it = lista.iterator();
-        while (it.hasNext()) {
-            if (it.next().getId() == id) {
-                it.remove();
-            }
-        }
+        lista.removeIf(e->e.getId()==id);
     }
 
     //Metodo que retorna um estudante em um indice especifico. O(1)
