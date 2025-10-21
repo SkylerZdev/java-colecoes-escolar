@@ -45,6 +45,10 @@ public class ListaEstudantes {
     //Metodo que ordena a lista pelo nome alfabeticamente, utilizando um Comparador. O(N log N)
     void ordenarEstudantesPorNomes() {
         lista.sort(new ComparadorNome());
+        System.out.println("LISTA DE ESTUDANTES // ORDENADA: ");
+        for (Estudante estudante : lista) {
+            System.out.println(estudante.getNome());
+        }
     }
 
     //Metodo que imprime os atributos de todos os estudantes da lista. O(n)
@@ -54,12 +58,16 @@ public class ListaEstudantes {
             return;
         }
         for (Estudante estudante : lista) {
-            System.out.println("Nome: " + estudante.getNome() + " || Id: " + estudante.getId());
+            System.out.println("Id: " + estudante.getId() + "  //  Nome: " + estudante.getNome());
         }
     }
     //Metodo que retorna uma copia da lista de estudantes como um ArrayList 
     public ArrayList<Estudante> obterTodos() {
         return new ArrayList<>(lista);
+    }
+
+    public int getSize(){
+        return lista.size();
     }
 
 }

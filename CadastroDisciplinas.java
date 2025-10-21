@@ -43,4 +43,14 @@ public class CadastroDisciplinas {
     public List<Disciplina> obterDuplicatas() {
         return new ArrayList<>(duplicatas);
     }
+
+    void imprimirDisciplinas() {
+        if (disciplinas.isEmpty()) {
+            System.out.println("Nenhuma disciplina cadastrada");
+            return;
+        }
+        for (Disciplina disciplina : disciplinas) {
+            System.out.println("Codigo: " + disciplina.getCodigo() + "  //  Nome: " + disciplina.getNome());
+        }
+    }
 }

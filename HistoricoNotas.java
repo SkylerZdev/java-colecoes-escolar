@@ -78,7 +78,7 @@ public class HistoricoNotas {
         for (List<Matricula> listaM : hist.values()) {
             if (listaM == null) continue;
             for (Matricula m : listaM) {
-                if (m.getCodigoDisciplina() == codigoDisciplina) {
+                if (m.getCodigoDisciplina().equals(codigoDisciplina)) {
                     soma += m.getNota();
                     contador++;
                 }
